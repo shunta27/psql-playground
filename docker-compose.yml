@@ -1,0 +1,11 @@
+version: '2'
+services:
+  db:
+    build: .
+    container_name: psql
+    volumes:
+      - ./postgresql:/var/lib/postgresql
+      - ./work:/usr/src
+    ports:
+      - "5432:5432"
+    env_file: .env
