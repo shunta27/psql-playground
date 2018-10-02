@@ -4,8 +4,12 @@ services:
     build: .
     container_name: psql
     volumes:
-      - ./postgresql:/var/lib/postgresql
+      - psql-db:/var/lib/postgresql/data
       - ./work:/usr/src
     ports:
       - "5432:5432"
     env_file: .env
+
+volumes:
+  psql-db:
+    driver: local
